@@ -25,7 +25,7 @@ export default function Header({ content, language, onLanguageChange }: HeaderPr
         <div className="flex items-center justify-between gap-4">
           <a href="#" className="flex min-w-fit items-center gap-3">
             <span className="h-4 w-4 rounded-full border-2 border-fluxDark bg-fluxNeon" />
-            <span className="font-display text-xl font-black uppercase tracking-widest text-fluxDark sm:text-2xl">
+            <span className="font-display text-xl font-black tracking-normal text-fluxDark sm:text-2xl">
               ArtLife Seoul
             </span>
           </a>

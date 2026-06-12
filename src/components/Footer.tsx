@@ -7,7 +7,7 @@ export default function Footer({ content }: { content: LandingContent["footer"] 
         <div>
           <div className="flex items-center gap-3">
             <span className="h-4 w-4 rounded-full border-2 border-white bg-fluxNeon" />
-            <span className="font-display text-3xl font-black uppercase tracking-widest text-fluxNeon">Seoul Culture Now</span>
+            <span className="font-display text-3xl font-black tracking-normal text-fluxNeon">ArtLife Seoul</span>
           </div>
           <p className="mt-4 max-w-md text-xl font-bold leading-snug text-white/70">
             {content.description}
@@ -23,7 +23,7 @@ export default function Footer({ content }: { content: LandingContent["footer"] 
         </div>
       </div>
       <div className="mx-auto mt-12 max-w-7xl border-t border-white/15 pt-8 text-xs font-bold uppercase tracking-wider text-white/45">
-        © 2026 Seoul Culture Now. All rights reserved.
+        © 2026 ArtLife Seoul. All rights reserved.
       </div>
     </footer>
   );
