@@ -15,7 +15,7 @@ export default function Hero({ content }: { content: LandingContent["hero"] }) {
               <span
                 key={line}
                 className={`block whitespace-nowrap ${
-                  index === 0 ? "text-[clamp(2.45rem,10.5vw,4.9rem)] sm:text-[clamp(4rem,7.2vw,6.6rem)] lg:text-[clamp(4.5rem,5.5vw,5.8rem)]" : ""
+                  index === 0 ? "text-[clamp(2.65rem,11vw,5.15rem)] sm:text-[clamp(4.4rem,8.1vw,7.1rem)] lg:text-[clamp(5.25rem,6.35vw,6.9rem)]" : ""
                 }`}
               >
                 {line}
