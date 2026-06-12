@@ -70,7 +70,7 @@ export const landingContent: Record<Language, LandingContent> = {
     hero: {
       badge: "ArtLife Seoul © 2026",
       titleLines: ["전시. 클래식. 연극", "지금 서울에서."],
-      subtitle: "연극, 클래식, 전시 그리고 산책까지. ArtLife Seoul이 오늘의 기분에 어울리는 서울의 예술 코스를 제안합니다.",
+      subtitle: "전시, 클래식, 연극 그리고 산책까지. ArtLife Seoul이 오늘의 기분에 어울리는 서울의 예술 코스를 제안합니다.",
       primaryCta: "오늘 볼 공연 찾기",
       secondaryCta: "문화 코스 보기",
       cardsLabel: "Curated Picks",

@@ -10,11 +10,10 @@ export default function Hero({ content }: { content: LandingContent["hero"] }) {
             <CalendarDays size={16} />
             {content.badge}
           </div>
-          <h1 className="font-display text-[17vw] font-black uppercase leading-[0.85] tracking-normal text-fluxDark sm:text-[13vw] lg:text-[8.5vw]">
+          <h1 className="font-display text-[clamp(2rem,8vw,3.75rem)] font-black uppercase leading-[0.9] tracking-normal text-fluxDark sm:text-[clamp(2.75rem,5.6vw,5rem)] lg:text-[clamp(3rem,4vw,3.7rem)]">
             {content.titleLines.map((line) => (
-              <span key={line}>
+              <span key={line} className="block whitespace-nowrap">
                 {line}
-                <br />
               </span>
             ))}
           </h1>
