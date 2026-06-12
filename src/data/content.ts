@@ -69,8 +69,8 @@ export const landingContent: Record<Language, LandingContent> = {
     },
     hero: {
       badge: "ArtLife Seoul © 2026",
-      titleLines: ["오늘 서울에서", "무엇을 볼까?"],
-      subtitle: "전시, 클래식, 연극을 한눈에 발견하고 예매와 하루 코스까지 연결하세요.",
+      titleLines: ["오늘,", "내 마음이 머무르고 싶은 곳."],
+      subtitle: "연극, 클래식, 전시 그리고 산책까지. ArtLife Seoul이 오늘의 기분에 어울리는 서울의 예술 코스를 제안합니다.",
       primaryCta: "오늘 볼 공연 찾기",
       secondaryCta: "문화 코스 보기",
       cardsLabel: "Curated Picks",
