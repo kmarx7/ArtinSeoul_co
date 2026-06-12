@@ -23,32 +23,36 @@ const categories = [
 
 export default function CategoryCards() {
   return (
-    <section className="relative z-10 px-4 py-16 sm:px-6 lg:px-8">
+    <section className="border-y-2 border-fluxDark bg-fluxNeon px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div className="mb-12 flex flex-col justify-between gap-4 border-b-2 border-fluxDark pb-5 md:flex-row md:items-end">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-gold">Categories</p>
-            <h2 className="mt-3 text-3xl font-semibold text-pearl sm:text-4xl">취향의 입구를 가볍게 고르세요</h2>
+            <p className="font-mono text-sm font-black uppercase tracking-widest text-fluxDark/60">Categories</p>
+            <h2 className="mt-3 font-display text-5xl font-black uppercase leading-none text-fluxDark sm:text-6xl">
+              장르를 고르세요
+            </h2>
           </div>
-          <p className="max-w-xl text-sm leading-7 text-pearl/60">
+          <p className="max-w-xl text-lg font-bold leading-snug text-fluxDark">
             연극, 클래식, 전시를 복잡한 검색 없이 분위기와 시간대 중심으로 탐색합니다.
           </p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3">
-          {categories.map(({ title, description, tags, Icon }) => (
+        <div className="grid gap-0 border-2 border-fluxDark md:grid-cols-3">
+          {categories.map(({ title, description, tags, Icon }, index) => (
             <article
               key={title}
-              className="glass-panel group rounded-2xl p-6 transition duration-300 hover:-translate-y-1 hover:border-gold/35"
+              className={`group cursor-pointer bg-fluxBg p-8 transition hover:bg-fluxDark hover:text-fluxNeon md:p-10 ${
+                index < 2 ? "border-b-2 border-fluxDark md:border-b-0 md:border-r-2" : ""
+              }`}
             >
-              <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl border border-gold/20 bg-gold/10 text-gold">
-                <Icon size={26} />
+              <div className="mb-10 text-fluxDark transition group-hover:text-fluxNeon">
+                <Icon size={48} strokeWidth={2.3} />
               </div>
-              <h3 className="text-2xl font-semibold text-pearl">{title}</h3>
-              <p className="mt-3 min-h-14 text-sm leading-7 text-pearl/66">{description}</p>
+              <h3 className="font-display text-5xl font-black uppercase leading-none">{title}</h3>
+              <p className="mt-5 min-h-20 text-lg font-bold leading-snug opacity-80">{description}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {tags.map((tag) => (
-                  <span key={tag} className="rounded-full border border-white/10 px-3 py-1 text-xs text-pearl/60">
+                  <span key={tag} className="border-2 border-current px-2 py-1 text-xs font-black uppercase">
                     {tag}
                   </span>
                 ))}

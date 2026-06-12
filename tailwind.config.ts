@@ -9,20 +9,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        night: "#080b14",
-        ink: "#101827",
-        wine: "#7c203a",
-        gold: "#d7ae61",
-        brass: "#a77a39",
-        pearl: "#f6efe2",
+        fluxBg: "#e4e3e0",
+        fluxDark: "#141414",
+        fluxNeon: "#e2ff46",
+        fluxGray: "#8f8f8f",
+        fluxWine: "#7c203a",
       },
       boxShadow: {
-        glow: "0 24px 80px rgba(215, 174, 97, 0.18)",
-        wine: "0 24px 70px rgba(124, 32, 58, 0.26)",
+        brutal: "4px 4px 0px 0px rgba(20,20,20,1)",
+        brutalSm: "2px 2px 0px 0px rgba(20,20,20,1)",
       },
       backgroundImage: {
-        "radial-stage":
-          "radial-gradient(circle at 18% 18%, rgba(215,174,97,.22), transparent 32%), radial-gradient(circle at 76% 12%, rgba(124,32,58,.24), transparent 34%), radial-gradient(circle at 62% 74%, rgba(33,60,112,.30), transparent 38%)",
+        "paper-grid":
+          "linear-gradient(rgba(20,20,20,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(20,20,20,.06) 1px, transparent 1px)",
+      },
+      fontFamily: {
+        display: ["var(--font-display)", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
       },
     },
   },

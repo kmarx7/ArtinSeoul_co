@@ -20,30 +20,40 @@ const routes = [
 
 export default function CulturalRoutePreview() {
   return (
-    <section id="routes" className="relative z-10 px-4 py-16 sm:px-6 lg:px-8">
+    <section id="routes" className="px-4 py-24 sm:px-6">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-8 max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-gold">Routes</p>
-          <h2 className="mt-3 text-3xl font-semibold text-pearl sm:text-4xl">공연 하나로 완성되는 서울의 하루</h2>
-          <p className="mt-4 text-sm leading-7 text-pearl/62">
+        <div className="relative mb-16">
+          <p className="font-mono text-sm font-black uppercase tracking-widest text-fluxGray">Routes</p>
+          <h2 className="relative z-10 mt-3 font-display text-[13vw] font-black uppercase leading-[0.86] text-fluxDark md:text-[8vw]">
+            공연 하나로 완성되는
+            <br />
+            서울의 하루
+          </h2>
+          <h3 className="pointer-events-none absolute -top-8 left-0 font-display text-[14vw] font-black uppercase leading-none text-stroke opacity-20 md:text-[9vw]">
+            Culture Route
+          </h3>
+          <p className="mt-6 max-w-xl text-lg font-bold leading-snug text-fluxDark/70">
             공연장 주변의 카페, 산책, 식사를 함께 묶어 하루의 흐름으로 제안합니다.
           </p>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-3">
           {routes.map((route) => (
-            <article key={route.title} className="glass-panel rounded-2xl p-6 transition duration-300 hover:-translate-y-1 hover:border-gold/35">
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-wine/30 text-gold">
-                <Route size={22} />
+            <article
+              key={route.title}
+              className="border-2 border-fluxDark bg-white p-6 shadow-brutal transition hover:translate-x-0.5 hover:translate-y-0.5 hover:bg-fluxNeon hover:shadow-brutalSm"
+            >
+              <div className="mb-8 inline-flex border-2 border-fluxDark bg-fluxDark p-3 text-fluxNeon">
+                <Route size={28} strokeWidth={2.5} />
               </div>
-              <h3 className="text-2xl font-semibold text-pearl">{route.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-pearl/70">{route.path}</p>
-              <p className="mt-5 rounded-2xl bg-white/7 p-4 text-sm leading-6 text-pearl/62">
+              <h3 className="font-display text-4xl font-black uppercase leading-none text-fluxDark">{route.title}</h3>
+              <p className="mt-5 text-base font-black leading-7 text-fluxDark">{route.path}</p>
+              <p className="mt-5 border-2 border-fluxDark bg-fluxBg p-4 text-sm font-bold leading-6 text-fluxDark/72">
                 추천 대상: {route.target}
               </p>
               <a
                 href="#"
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/8 px-4 py-3 text-sm font-semibold text-pearl transition hover:bg-gold hover:text-night"
+                className="mt-6 inline-flex items-center gap-2 border-2 border-fluxDark bg-fluxDark px-4 py-3 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white hover:text-fluxDark"
               >
                 코스 보기
                 <ArrowRight size={16} />
