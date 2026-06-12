@@ -2,17 +2,17 @@ import { ArrowUpRight, MapPin, Ticket } from "lucide-react";
 import type { EventItem } from "@/data/events";
 
 const genreTone: Record<EventItem["genre"], string> = {
-  연극: "bg-fluxWine text-white",
-  클래식: "bg-fluxNeon text-fluxDark",
-  전시: "bg-white text-fluxDark",
+  theater: "bg-fluxWine text-white",
+  classic: "bg-fluxNeon text-fluxDark",
+  exhibition: "bg-white text-fluxDark",
 };
 
-export default function EventCard({ event }: { event: EventItem }) {
+export default function EventCard({ event, detailsCta }: { event: EventItem; detailsCta: string }) {
   return (
     <article className="group flex h-full flex-col border-2 border-fluxDark bg-fluxBg p-5 shadow-brutal transition hover:translate-x-0.5 hover:translate-y-0.5 hover:bg-white hover:shadow-brutalSm">
       <div className="flex items-start justify-between gap-4">
         <span className={`border-2 border-fluxDark px-3 py-1 text-xs font-black uppercase tracking-wider ${genreTone[event.genre]}`}>
-          {event.genre}
+          {event.genreLabel}
         </span>
         <span className="max-w-[9rem] text-right font-mono text-xs font-black uppercase text-fluxDark/55">{event.period}</span>
       </div>
@@ -43,7 +43,7 @@ export default function EventCard({ event }: { event: EventItem }) {
         href="#"
         className="mt-6 inline-flex items-center justify-between border-2 border-fluxDark bg-fluxDark px-4 py-3 text-sm font-black uppercase tracking-wider text-white transition hover:bg-fluxNeon hover:text-fluxDark"
       >
-        자세히 보기
+        {detailsCta}
         <ArrowUpRight size={16} />
       </a>
     </article>

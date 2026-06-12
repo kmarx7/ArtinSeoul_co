@@ -2,10 +2,16 @@
 
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import type { LandingContent } from "@/data/content";
+import type { Language } from "@/data/events";
 
-const navItems = ["오늘의 추천", "연극", "클래식", "전시", "문화 코스"];
+type HeaderProps = {
+  content: LandingContent["header"];
+  language: Language;
+  onLanguageChange: (language: Language) => void;
+};
 
-export default function Header() {
+export default function Header({ content, language, onLanguageChange }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -20,7 +26,7 @@ export default function Header() {
           </a>
 
           <nav className="hidden items-center gap-2 text-xs font-black uppercase tracking-widest text-fluxDark lg:flex">
-            {navItems.map((item) => (
+            {content.nav.map((item) => (
               <a
                 key={item}
                 href="#"
@@ -32,11 +38,24 @@ export default function Header() {
           </nav>
 
           <div className="hidden items-center gap-3 sm:flex">
+            <div className="flex border-2 border-fluxDark bg-white text-xs font-black uppercase tracking-widest text-fluxDark">
+              {(["ko", "en"] as const).map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  onClick={() => onLanguageChange(item)}
+                  className={`px-3 py-2 transition ${language === item ? "bg-fluxDark text-fluxNeon" : "hover:bg-fluxNeon"}`}
+                  aria-pressed={language === item}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
             <a
               href="#newsletter"
               className="border-2 border-fluxDark bg-fluxNeon px-5 py-2.5 text-sm font-black uppercase tracking-wider text-fluxDark shadow-brutal transition hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-brutalSm"
             >
-              이번 주 추천 받기
+              {content.cta}
             </a>
           </div>
 
@@ -44,7 +63,7 @@ export default function Header() {
             type="button"
             onClick={() => setIsOpen((value) => !value)}
             className="grid h-11 w-11 place-items-center border-2 border-fluxDark bg-fluxNeon text-fluxDark shadow-brutal lg:hidden"
-            aria-label="메뉴 열기"
+            aria-label={content.menuLabel}
             aria-expanded={isOpen}
           >
             {isOpen ? <X size={19} /> : <Menu size={19} />}
@@ -53,7 +72,7 @@ export default function Header() {
 
         {isOpen ? (
           <div className="mt-4 grid gap-2 border-t-2 border-fluxDark pt-4 lg:hidden">
-            {navItems.map((item) => (
+            {content.nav.map((item) => (
               <a
                 key={item}
                 href="#"
@@ -63,12 +82,27 @@ export default function Header() {
                 {item}
               </a>
             ))}
+            <div className="grid grid-cols-2 gap-2">
+              {(["ko", "en"] as const).map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  onClick={() => onLanguageChange(item)}
+                  aria-pressed={language === item}
+                  className={`border-2 border-fluxDark px-3 py-2 text-sm font-black uppercase ${
+                    language === item ? "bg-fluxDark text-fluxNeon" : "bg-white text-fluxDark"
+                  }`}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
             <a
               href="#newsletter"
               onClick={() => setIsOpen(false)}
               className="mt-2 border-2 border-fluxDark bg-fluxNeon px-4 py-3 text-center text-sm font-black uppercase tracking-widest text-fluxDark"
             >
-              이번 주 추천 받기
+              {content.cta}
             </a>
           </div>
         ) : null}

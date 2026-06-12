@@ -1,6 +1,6 @@
-const footerLinks = ["오늘의 추천", "연극", "클래식", "전시", "문화 코스", "제휴 문의"];
+import type { LandingContent } from "@/data/content";
 
-export default function Footer() {
+export default function Footer({ content }: { content: LandingContent["footer"] }) {
   return (
     <footer className="bg-fluxDark px-4 pb-12 pt-20 text-white sm:px-6">
       <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-4">
@@ -10,12 +10,12 @@ export default function Footer() {
             <span className="font-display text-3xl font-black uppercase tracking-widest text-fluxNeon">Seoul Culture Now</span>
           </div>
           <p className="mt-4 max-w-md text-xl font-bold leading-snug text-white/70">
-            서울의 연극, 클래식, 전시회를 감각적으로 발견하는 문화 큐레이션 서비스
+            {content.description}
           </p>
         </div>
 
         <div className="flex flex-wrap gap-x-5 gap-y-3 text-sm font-bold text-white/70 md:col-span-3 md:justify-end">
-          {footerLinks.map((link) => (
+          {content.links.map((link) => (
             <a key={link} href="#" className="transition hover:text-fluxNeon">
               {link}
             </a>
