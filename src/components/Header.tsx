@@ -26,7 +26,7 @@ export default function Header({ content, language, onLanguageChange }: HeaderPr
           <a href="#" className="flex min-w-fit items-center gap-3">
             <span className="h-4 w-4 rounded-full border-2 border-fluxDark bg-fluxNeon" />
             <span className="font-display text-xl font-black uppercase tracking-widest text-fluxDark sm:text-2xl">
-              Seoul Culture Now
+              ArtLife Seoul
             </span>
           </a>
 
