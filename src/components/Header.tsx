@@ -11,6 +11,11 @@ type HeaderProps = {
   onLanguageChange: (language: Language) => void;
 };
 
+const languageOptions: Array<{ code: Language; label: string; flag: string; ariaLabel: string }> = [
+  { code: "ko", label: "KO", flag: "🇰🇷", ariaLabel: "한국어로 보기" },
+  { code: "en", label: "EN", flag: "🇬🇧", ariaLabel: "View in English" },
+];
+
 export default function Header({ content, language, onLanguageChange }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,15 +44,19 @@ export default function Header({ content, language, onLanguageChange }: HeaderPr
 
           <div className="hidden items-center gap-3 sm:flex">
             <div className="flex border-2 border-fluxDark bg-white text-xs font-black uppercase tracking-widest text-fluxDark">
-              {(["ko", "en"] as const).map((item) => (
+              {languageOptions.map((item) => (
                 <button
-                  key={item}
+                  key={item.code}
                   type="button"
-                  onClick={() => onLanguageChange(item)}
-                  className={`px-3 py-2 transition ${language === item ? "bg-fluxDark text-fluxNeon" : "hover:bg-fluxNeon"}`}
-                  aria-pressed={language === item}
+                  onClick={() => onLanguageChange(item.code)}
+                  className={`inline-flex items-center gap-1.5 px-3 py-2 transition ${
+                    language === item.code ? "bg-fluxDark text-fluxNeon" : "hover:bg-fluxNeon"
+                  }`}
+                  aria-pressed={language === item.code}
+                  aria-label={item.ariaLabel}
                 >
-                  {item}
+                  <span aria-hidden="true">{item.flag}</span>
+                  {item.label}
                 </button>
               ))}
             </div>
@@ -83,17 +92,19 @@ export default function Header({ content, language, onLanguageChange }: HeaderPr
               </a>
             ))}
             <div className="grid grid-cols-2 gap-2">
-              {(["ko", "en"] as const).map((item) => (
+              {languageOptions.map((item) => (
                 <button
-                  key={item}
+                  key={item.code}
                   type="button"
-                  onClick={() => onLanguageChange(item)}
-                  aria-pressed={language === item}
-                  className={`border-2 border-fluxDark px-3 py-2 text-sm font-black uppercase ${
-                    language === item ? "bg-fluxDark text-fluxNeon" : "bg-white text-fluxDark"
+                  onClick={() => onLanguageChange(item.code)}
+                  aria-pressed={language === item.code}
+                  aria-label={item.ariaLabel}
+                  className={`inline-flex items-center justify-center gap-2 border-2 border-fluxDark px-3 py-2 text-sm font-black uppercase ${
+                    language === item.code ? "bg-fluxDark text-fluxNeon" : "bg-white text-fluxDark"
                   }`}
                 >
-                  {item}
+                  <span aria-hidden="true">{item.flag}</span>
+                  {item.label}
                 </button>
               ))}
             </div>
